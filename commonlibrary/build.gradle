@@ -20,8 +20,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     api deps.supportv7
     api deps.constraintlayout
     testImplementation 'junit:junit:4.12'
@@ -29,5 +28,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation deps.butterknife
     annotationProcessor deps.butterknifeCompiler
-
+    api files('libs/tbs_sdk_thirdapp_20180608.jar')
+    api deps.YcAndroidUtils
 }

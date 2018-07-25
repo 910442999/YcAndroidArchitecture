@@ -21,4 +21,5 @@ ext.deps = [
 //增加butterknife 插件相关的库 (版本用内部定义的方式,方便管理)
         butterknife        : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
         butterknifeCompiler: "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
+        YcAndroidUtils: 'com.yc:YcAndroidUtils:1.1.7',
 ]
