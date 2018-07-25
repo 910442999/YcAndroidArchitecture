@@ -1,0 +1,25 @@
+//文件内部使用
+def butterknifeLatestReleaseVersion = '8.5.1'
+def supportLibraryVersion = '27.1.1'
+//外部使用的安卓版本相关
+ext {
+    applicationId = 'com.yc.androidarchitecture'
+    compileSdkVersion = 27
+    targetSdkVersion = 27
+    minSdkVersion = 19
+    buildToolsVersion = "27.1.1"
+    versionCode = 0
+    versionName = "1.0.0"
+}
+
+//compile依赖的第三方库
+ext.deps = [
+        supportv4          : "com.android.support:support-v4:$supportLibraryVersion",
+        supportv7          : "com.android.support:appcompat-v7:$supportLibraryVersion",
+        recyclerviewv7     : "com.android.support:recyclerview-v7:$supportLibraryVersion",
+        constraintlayout   : 'com.android.support.constraint:constraint-layout:1.1.2',
+        butterknife        : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
+        butterknifeCompiler: "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
+]
+
+
