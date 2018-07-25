@@ -1,5 +1,5 @@
 //文件内部使用
-def butterknifeLatestReleaseVersion = '8.5.1'
+def butterknifeLatestReleaseVersion = '8.5.1' //butterknife插件的版本
 def supportLibraryVersion = '27.1.1'
 //外部使用的安卓版本相关
 ext {
@@ -18,8 +18,7 @@ ext.deps = [
         supportv7          : "com.android.support:appcompat-v7:$supportLibraryVersion",
         recyclerviewv7     : "com.android.support:recyclerview-v7:$supportLibraryVersion",
         constraintlayout   : 'com.android.support.constraint:constraint-layout:1.1.2',
+//增加butterknife 插件相关的库 (版本用内部定义的方式,方便管理)
         butterknife        : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
         butterknifeCompiler: "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
 ]
-
-

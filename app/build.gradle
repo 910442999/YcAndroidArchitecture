@@ -23,7 +23,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':homelibrary')
     implementation project(':mylibrary')
-    api deps.butterknife
+    implementation deps.butterknife
     annotationProcessor deps.butterknifeCompiler
 
 }

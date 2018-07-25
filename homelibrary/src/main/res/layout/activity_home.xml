@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/home"
+        android:padding="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="首页"/>
+
+    <TextView
+        android:id="@+id/home_to_my"
+        android:padding="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="首页"/>
-</android.support.constraint.ConstraintLayout>
+        android:text="跳转到我的页面"/>
+
+</LinearLayout>
