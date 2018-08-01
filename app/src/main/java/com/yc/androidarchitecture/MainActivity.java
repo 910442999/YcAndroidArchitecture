@@ -1,41 +1,114 @@
 package com.yc.androidarchitecture;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.yc.commonlibrary.base.BaseActivity;
+import com.yc.commonlibrary.presenter.BasePresenter;
 import com.yc.homelibrary.HomeActivity;
+import com.yc.homelibrary.fragment.HomeFragment;
+import com.yc.homelibrary.presenter.HomePresenter;
 import com.yc.mylibrary.MyActivity;
+import com.yc.mylibrary.fragment.MyFragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.text1)
-    TextView mText1;
-    @BindView(R.id.text2)
-    TextView mText2;
+
+import static com.yc.commonlibrary.base.Constants.currentFragment;
+
+public class MainActivity extends BaseActivity {
+    private ArrayList<Fragment> fragments;
+    private FragmentTransaction transaction;
+    private Fragment fragment;
+    private HomeFragment mHomeFragment;
+    private MyFragment mMyFragment;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    showFragment(0);
+                    return true;
+                case R.id.navigation_notifications:
+                    showFragment(1);
+                    return true;
+            }
+            return false;
+        }
+    };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
-    @OnClick({R.id.text1, R.id.text2})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.text1:
-                startActivity(new Intent(this, HomeActivity.class));
-                break;
-            case R.id.text2:
-                startActivity(new Intent(this, MyActivity.class));
-                break;
+
+    @Override
+    protected int initLayoutInflater() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initView() {
+        prepareFragments();
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+
+    public void initData() {
+        //默认到首页
+        showFragment(0);
+    }
+
+    private void prepareFragments() {
+        fragments = new ArrayList<>();
+        if (mHomeFragment == null) {
+            mHomeFragment = HomeFragment.newInstance("首页");
         }
+        fragments.add(mHomeFragment);
+
+        if (mMyFragment == null) {
+            mMyFragment = MyFragment.newInstance("设置");
+        }
+        fragments.add(mMyFragment);
+
+    }
+
+    public void showFragment(int position) {
+        currentFragment = position;
+        FragmentManager fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        //先隐藏其他的
+        for (int i = 0; i < fragments.size(); i++) {
+            fragment = fragments.get(i);
+            if (i == position) {
+                if (fragment.isAdded()) {
+                    transaction.show(fragment);
+                } else {
+                    //add
+                    transaction.add(R.id.fl_main, fragment);
+                }
+            } else {
+                if (fragment.isAdded()) {
+                    transaction.hide(fragment);
+                }
+            }
+        }
+        //commit
+        transaction.commitAllowingStateLoss();
+
     }
 }
