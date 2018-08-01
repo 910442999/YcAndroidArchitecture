@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyLibrary</string>
+    <string name="my_library_name">MyLibrary</string>
 </resources>

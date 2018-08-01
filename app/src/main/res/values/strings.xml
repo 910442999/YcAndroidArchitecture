@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">YcAndroidArchitecture</string>
+    <string name="title_home">首页</string>
+    <string name="title_notifications">设置</string>
 </resources>
