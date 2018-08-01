@@ -31,4 +31,10 @@ dependencies {
     api files('libs/tbs_sdk_thirdapp_20180608.jar')
     api deps.YcAndroidUtils
     api deps.design
+    api deps.rxjava
+    api deps.rxandroid
+    api deps.retrofit
+    api deps.retrofit2_converter_gson
+    api deps.retrofit2_adapter_rxjava2
+    api deps.okhttp3_logging_interceptor
 }

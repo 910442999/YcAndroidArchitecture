@@ -14,13 +14,20 @@ ext {
 
 //compile依赖的第三方库
 ext.deps = [
-        supportv4          : "com.android.support:support-v4:$supportLibraryVersion",
-        supportv7          : "com.android.support:appcompat-v7:$supportLibraryVersion",
-        recyclerviewv7     : "com.android.support:recyclerview-v7:$supportLibraryVersion",
-        constraintlayout   : 'com.android.support.constraint:constraint-layout:1.1.2',
+        supportv4                  : "com.android.support:support-v4:$supportLibraryVersion",
+        supportv7                  : "com.android.support:appcompat-v7:$supportLibraryVersion",
+        recyclerviewv7             : "com.android.support:recyclerview-v7:$supportLibraryVersion",
+        constraintlayout           : 'com.android.support.constraint:constraint-layout:1.1.2',
 //增加butterknife 插件相关的库 (版本用内部定义的方式,方便管理)
-        butterknife        : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
-        butterknifeCompiler: "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
-        YcAndroidUtils: 'com.yc:YcAndroidUtils:1.1.7',
-        design : "com.android.support:design:$supportLibraryVersion"
+        butterknife                : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
+        butterknifeCompiler        : "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
+        YcAndroidUtils             : 'com.yc:YcAndroidUtils:1.1.7',
+        design                     : "com.android.support:design:$supportLibraryVersion",
+
+        rxjava                     : "io.reactivex.rxjava2:rxjava:2.1.1",
+        rxandroid                  : "io.reactivex.rxjava2:rxandroid:2.0.1",
+        retrofit                   : "com.squareup.retrofit2:retrofit:2.3.0",
+        retrofit2_converter_gson   : "com.squareup.retrofit2:converter-gson:2.3.0",
+        retrofit2_adapter_rxjava2  : "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
+        okhttp3_logging_interceptor: "com.squareup.okhttp3:logging-interceptor:3.10.0",
 ]

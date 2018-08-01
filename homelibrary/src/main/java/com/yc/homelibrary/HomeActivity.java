@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 
 import com.yc.commonlibrary.base.BaseActivity;
+import com.yc.commonlibrary.bean.ApiResult;
 import com.yc.homelibrary.presenter.HomePresenter;
 import com.yc.homelibrary.view.IHomeView;
 
@@ -64,7 +65,7 @@ public class HomeActivity extends BaseActivity<IHomeView, HomePresenter<IHomeVie
     }
 
     @Override
-    public void showhome(List list) {
+    public void showhome(ApiResult apiResult) {
 
     }
 
