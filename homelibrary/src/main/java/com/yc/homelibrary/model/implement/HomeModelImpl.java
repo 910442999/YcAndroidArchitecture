@@ -1,6 +1,4 @@
-package com.yc.homelibrary.presenter.implement;
-
-import android.widget.Toast;
+package com.yc.homelibrary.model.implement;
 
 import com.yc.commonlibrary.base.UrlConfig;
 import com.yc.commonlibrary.bean.ApiResult;
@@ -16,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class HomePresenterImp implements HomeModel {
+public class HomeModelImpl implements HomeModel {
     @Override
     public void loadDate(final onCallBackListener callBackListener) {
         Map map = new HashMap();
@@ -27,12 +25,12 @@ public class HomePresenterImp implements HomeModel {
             public void onSuccess(ApiResult apiResult) {
                 if (apiResult.getResult() != null)
                     //通过回调将数据返回给 model层
-                    callBackListener.onComplete(apiResult);
+                    callBackListener.onSuccess(apiResult);
             }
 
             @Override
             public void onFailed(String e) {
-
+                callBackListener.onFailed(e);
             }
         });
 
@@ -45,6 +43,6 @@ public class HomePresenterImp implements HomeModel {
             homeBeanList.add(new HomeBean("名字 ：" + i));
         }
         //通过回调将数据返回给 model层
-        callBackListener.onComplete(homeBeanList);
+        callBackListener.onSuccess(homeBeanList);
     }
 }
