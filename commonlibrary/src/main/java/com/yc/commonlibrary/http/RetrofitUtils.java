@@ -17,18 +17,20 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by rbh on 2018/4/3.
+ * Created by yc on 2018/4/3.
  */
 
 public class RetrofitUtils {
     private static final String TAG = "RetrofitUtils";
     private static volatile RetrofitUtils instance;
 
+    //定义请求服务
     private BaseApiService mBaseApiService;
 
 
     private RetrofitUtils(Object tag) {
 
+        //由于Retrofit是基于okhttp的所以，要先初始化okhttp相关配置
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         //        // BASIC，BODY，HEADERS
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -37,8 +39,8 @@ public class RetrofitUtils {
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())//利用gson来解析数据，你也可以用其他方式解析
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//结合rxjava 来实现数据回调
                 .baseUrl(UrlConfig.BASEURL)
                 .build();
         mBaseApiService = retrofit.create(BaseApiService.class);
@@ -85,7 +87,7 @@ public class RetrofitUtils {
     public void post(String url, Map map, final OnRequestCallBackListener callBackListener) {
         requestCallBack(url, map, callBackListener);
     }
-
+//处理数据请求相关功能，通过接口回调的方式将rxjava返回的数据返回给调用者
     private <T> void requestCallBack(String url, Map map, final OnRequestCallBackListener<T> onRequestCallBackListener) {
         Flowable flowable = mBaseApiService.get(url, map);
         Flowable<ApiResult<T>> newsBeanFlowable1 = flowable.subscribeOn(Schedulers.io());
