@@ -13,6 +13,6 @@ import java.util.List;
  */
 
 public interface HomeModel extends BaseModel {
-
+    //使用回调的方式返回数据，不用返回值返回的原因是因为防止在请求数据的时候方法在等待返回值而是ui变的卡顿
     void loadDate1(onCallBackListener callBackListener);
 }
