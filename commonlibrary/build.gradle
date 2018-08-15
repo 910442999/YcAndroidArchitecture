@@ -30,6 +30,7 @@ dependencies {
     annotationProcessor deps.butterknifeCompiler
     api files('libs/tbs_sdk_thirdapp_20180608.jar')
     api deps.YcAndroidUtils
+    api deps.YcBaseAdapter
     api deps.design
     api deps.rxjava
     api deps.rxandroid
