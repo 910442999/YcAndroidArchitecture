@@ -29,7 +29,7 @@ public abstract class BaseFragment<V, P extends BasePresenter<V>> extends Fragme
         if (basePresenter != null)
             //绑定
             basePresenter.onAttachView((V) this);
-        initView();
+        initView(view);
         initData();
         return view;
     }
@@ -39,7 +39,7 @@ public abstract class BaseFragment<V, P extends BasePresenter<V>> extends Fragme
 
     protected abstract int initLayoutInflater(); //初始化布局
 
-    public abstract void initView();
+    public abstract void initView(View view);
 
     public abstract void initData();
 

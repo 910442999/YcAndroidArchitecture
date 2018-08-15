@@ -21,5 +21,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api project(':commonlibrary')
     implementation deps.butterknife
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     annotationProcessor deps.butterknifeCompiler
 }

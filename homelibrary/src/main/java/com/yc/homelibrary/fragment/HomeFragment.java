@@ -48,7 +48,7 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter<IHomeVie
     }
 
     @Override
-    public void initView() {
+    public void initView(View view) {
 
     }
 

@@ -4,7 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.tencent.smtt.sdk.QbSdk;
+import com.yc.commonlibrary.BuildConfig;
 
 
 public class BaseApplication extends Application {
@@ -19,10 +21,20 @@ public class BaseApplication extends Application {
         appContext = instance.getApplicationContext();
         //初始化X内核
         initX5Webview();
-        //初始化mob分享
-//        MobSDK.init(this);
+
+        initARouter();
+
 
     }
+
+    private void initARouter() {
+        if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(getInstance()); // 尽可能早，推荐在Application中初始化
+    }
+
     private void initX5Webview() {
         //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
@@ -42,6 +54,7 @@ public class BaseApplication extends Application {
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(), cb);
     }
+
     public static synchronized BaseApplication getInstance() {
         return instance;
     }

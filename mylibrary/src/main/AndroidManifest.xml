@@ -3,7 +3,8 @@
     package="com.yc.mylibrary">
 
     <application>
-        <activity android:name=".MyActivity"></activity>
+        <activity android:name=".MyActivity" />
+        <activity android:name=".TestActivity"></activity>
     </application>
 
 </manifest>

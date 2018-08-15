@@ -9,6 +9,14 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //alibaba
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -38,4 +46,9 @@ dependencies {
     api deps.retrofit2_converter_gson
     api deps.retrofit2_adapter_rxjava2
     api deps.okhttp3_logging_interceptor
+
+    // 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    api 'com.alibaba:arouter-api:1.4.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }
