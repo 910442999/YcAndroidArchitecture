@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -9,6 +10,14 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+//        //alibaba框架arouter路由配置
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+
     }
 
     buildTypes {
@@ -26,4 +35,10 @@ dependencies {
     implementation deps.butterknife
     annotationProcessor deps.butterknifeCompiler
 
+    // 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+//    implementation project(':arouter-api')
+//    annotationProcessor project(':arouter-compiler')
+//    implementation 'com.alibaba:arouter-api:1.4.0'
+//    annotationProcessor project(':arouter-compiler')
 }
