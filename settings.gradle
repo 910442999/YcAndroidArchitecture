@@ -1,1 +1,1 @@
-include ':app', ':mylibrary', ':homelibrary', ':commonlibrary'
+include ':app', ':mylibrary', ':homelibrary', ':commonlibrary',':arouter-compiler'

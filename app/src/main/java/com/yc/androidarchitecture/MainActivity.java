@@ -4,20 +4,13 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import com.yc.commonlibrary.base.BaseActivity;
 import com.yc.commonlibrary.presenter.BasePresenter;
-import com.yc.homelibrary.HomeActivity;
 import com.yc.homelibrary.fragment.HomeFragment;
-import com.yc.homelibrary.presenter.HomePresenter;
-import com.yc.mylibrary.MyActivity;
 import com.yc.mylibrary.fragment.MyFragment;
 
 import java.util.ArrayList;
@@ -110,5 +103,14 @@ public class MainActivity extends BaseActivity {
         //commit
         transaction.commitAllowingStateLoss();
 
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1002) {
+            mMyFragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
