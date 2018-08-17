@@ -8,6 +8,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.tencent.smtt.sdk.QbSdk;
 import com.yc.commonlibrary.BuildConfig;
 
+//import com.alibaba.android.arouter.launcher.ARouter;
+
 
 public class BaseApplication extends Application {
     private static BaseApplication instance;
@@ -23,7 +25,6 @@ public class BaseApplication extends Application {
         initX5Webview();
 
         initARouter();
-
 
     }
 

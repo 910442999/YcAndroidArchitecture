@@ -3,7 +3,6 @@ package com.yc.androidarchitecture;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
@@ -14,8 +13,6 @@ import com.yc.homelibrary.fragment.HomeFragment;
 import com.yc.mylibrary.fragment.MyFragment;
 
 import java.util.ArrayList;
-
-
 
 import static com.yc.commonlibrary.base.Constants.currentFragment;
 

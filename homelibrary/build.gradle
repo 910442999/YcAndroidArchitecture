@@ -9,6 +9,13 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //alibaba框架arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
@@ -22,4 +29,6 @@ dependencies {
     api project(':commonlibrary')
     implementation deps.butterknife
     annotationProcessor deps.butterknifeCompiler
+
+    annotationProcessor project(':arouter-compiler')
 }
