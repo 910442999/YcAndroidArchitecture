@@ -5,13 +5,12 @@ import com.yc.commonlibrary.bean.ApiResult;
 import com.yc.commonlibrary.http.RetrofitUtils;
 import com.yc.commonlibrary.interfaces.OnRequestCallBackListener;
 import com.yc.commonlibrary.interfaces.onCallBackListener;
-import com.yc.homelibrary.bean.HomeBean;
 import com.yc.homelibrary.model.HomeModel;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import okhttp3.RequestBody;
 
 
 public class HomeModelImpl implements HomeModel {
@@ -20,16 +19,16 @@ public class HomeModelImpl implements HomeModel {
         Map map = new HashMap();
         map.put("key", "4a216a3fde4361f175aa2678dada199b");
         map.put("type", "top");
-        RetrofitUtils.getInstance().get(UrlConfig.NEWS_URL, map, new OnRequestCallBackListener() {
+        RetrofitUtils.getInstance().get(UrlConfig.NEWS_URL, map, new OnRequestCallBackListener<ApiResult>() {
             @Override
-            public void onSuccess(ApiResult apiResult) {
-                if (apiResult.getResult() != null)
+            public void onSuccess(ApiResult result, String type) {
+                if (result.getResult() != null)
                     //通过回调将数据返回给 model层
-                    callBackListener.onSuccess(apiResult);
+                    callBackListener.onSuccess(result);
             }
 
             @Override
-            public void onFailed(String e) {
+            public void onFailed(String e, String type) {
                 callBackListener.onFailed(e);
             }
         });
@@ -37,12 +36,26 @@ public class HomeModelImpl implements HomeModel {
 
     }
 
-    public void loadDate1(onCallBackListener callBackListener) {
-        List<HomeBean> homeBeanList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            homeBeanList.add(new HomeBean("名字 ：" + i));
-        }
-        //通过回调将数据返回给 model层
-        callBackListener.onSuccess(homeBeanList);
+    public void loadDate1(final onCallBackListener callBackListener) {
+        RetrofitUtils instance = RetrofitUtils.getInstance();
+        //        instance.addParameter()
+        //        Map map = new HashMap();
+        instance.addParameter("key", "4a216a3fde4361f175aa2678dada199b");
+        instance.addParameter("type", "top");
+        Map<String, RequestBody> bulider = instance.bulider();
+        instance.get(UrlConfig.NEWS_URL, bulider, new OnRequestCallBackListener<ApiResult>() {
+            @Override
+            public void onSuccess(ApiResult result, String type) {
+                if (result.getResult() != null)
+                    //通过回调将数据返回给 model层
+                    callBackListener.onSuccess(result);
+            }
+
+            @Override
+            public void onFailed(String e, String type) {
+                callBackListener.onFailed(e);
+            }
+        });
+
     }
 }

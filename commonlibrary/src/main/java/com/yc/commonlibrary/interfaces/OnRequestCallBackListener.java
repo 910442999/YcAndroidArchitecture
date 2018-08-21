@@ -1,10 +1,8 @@
 package com.yc.commonlibrary.interfaces;
 
-import com.yc.commonlibrary.bean.ApiResult;
-
 public interface OnRequestCallBackListener<T> {
-    void onSuccess(ApiResult<T> string);
+    void onSuccess(T result, String type);
 
-    void onFailed(String e);
+    void onFailed(String e, String type);
 
 }

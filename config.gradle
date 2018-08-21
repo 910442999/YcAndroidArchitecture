@@ -22,7 +22,7 @@ ext.deps = [
         butterknife                : "com.jakewharton:butterknife:$butterknifeLatestReleaseVersion",
         butterknifeCompiler        : "com.jakewharton:butterknife-compiler:$butterknifeLatestReleaseVersion",
         YcAndroidUtils             : 'com.yc:YcAndroidUtils:1.1.7',
-        YcBaseAdapter              : 'com.yc:YcBaseAdapter:1.0.0',
+        YcBaseAdapter              : 'com.yc:YcBaseAdapter:1.0.1',
         design                     : "com.android.support:design:$supportLibraryVersion",
 
         rxjava                     : "io.reactivex.rxjava2:rxjava:2.1.1",
