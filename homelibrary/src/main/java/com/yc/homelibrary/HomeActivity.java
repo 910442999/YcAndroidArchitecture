@@ -9,11 +9,11 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yc.commonlibrary.base.BaseActivity;
-import com.yc.commonlibrary.bean.ApiResult;
 import com.yc.homelibrary.presenter.HomePresenter;
 import com.yc.homelibrary.view.IHomeView;
 
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -75,11 +75,6 @@ public class HomeActivity extends BaseActivity<IHomeView, HomePresenter<IHomeVie
     }
 
     @Override
-    public void showhome(ApiResult apiResult) {
-
-    }
-
-    @Override
     public void showLoading() {
 
     }
@@ -107,5 +102,10 @@ public class HomeActivity extends BaseActivity<IHomeView, HomePresenter<IHomeVie
             String arg2 = data.getStringExtra("arg2");
             Toast.makeText(HomeActivity.this, arg2, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void showhome(List apiResult) {
+
     }
 }

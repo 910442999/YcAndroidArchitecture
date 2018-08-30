@@ -38,6 +38,8 @@ dependencies {
     annotationProcessor deps.butterknifeCompiler
     api files('libs/tbs_sdk_thirdapp_20180608.jar')
     api deps.YcAndroidUtils
+    implementation deps.glide
+    annotationProcessor deps.glideCompiler
     api deps.YcBaseAdapter
     api deps.design
     api deps.rxjava
@@ -51,4 +53,6 @@ dependencies {
     // 要与compiler匹配使用，均使用最新版可以保证兼容
     api 'com.alibaba:arouter-api:1.4.0'
     annotationProcessor project(':arouter-compiler')
+    implementation deps.glide
+    annotationProcessor deps.glideCompiler
 }

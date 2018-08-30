@@ -29,6 +29,6 @@ dependencies {
     api project(':commonlibrary')
     implementation deps.butterknife
     annotationProcessor deps.butterknifeCompiler
-
     annotationProcessor project(':arouter-compiler')
+
 }

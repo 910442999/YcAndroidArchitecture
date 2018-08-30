@@ -1,11 +1,10 @@
 package com.yc.commonlibrary.http;
 
-import com.yc.commonlibrary.bean.ApiResult;
-
 import java.util.Map;
 
 import io.reactivex.Flowable;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -18,9 +17,9 @@ import retrofit2.http.Url;
  */
 public interface BaseApiService {
     @GET()
-    Flowable<ApiResult> get(@Url String url, @QueryMap Map<String, Object> map);
+    Flowable<ResponseBody> get(@Url String url, @QueryMap Map<String, Object> map);
     @Multipart
     @POST()
-    Flowable<ApiResult> post(@Url String url, @PartMap Map<String, RequestBody> params);
+    Flowable<ResponseBody> post(@Url String url, @PartMap Map<String, RequestBody> params);
 
 }

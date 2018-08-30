@@ -7,6 +7,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tencent.smtt.sdk.QbSdk;
 import com.yc.commonlibrary.BuildConfig;
+import com.yc.yclibrary.YcUtils;
 
 //import com.alibaba.android.arouter.launcher.ARouter;
 
@@ -25,7 +26,7 @@ public class BaseApplication extends Application {
         initX5Webview();
 
         initARouter();
-
+        YcUtils.init(this);
     }
 
     private void initARouter() {

@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yc.commonlibrary" />
+    package="com.yc.commonlibrary" >
+
+    <application>
+        <activity android:name=".X5BrowserActivity"></activity>
+    </application>
+
+</manifest>

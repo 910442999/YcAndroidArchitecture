@@ -1,9 +1,8 @@
 package com.yc.homelibrary.view;
 
 
-import com.yc.commonlibrary.bean.ApiResult;
 import com.yc.commonlibrary.view.BaseView;
-import com.yc.homelibrary.bean.HomeBean;
+import com.yc.homelibrary.bean.NewsBean;
 
 import java.util.List;
 
@@ -13,5 +12,5 @@ import java.util.List;
 
 public interface IHomeView<T> extends BaseView<T> {
     //接收显示recyview中的数据
-    void showhome(ApiResult apiResult);
+    void showhome(List<NewsBean.ResultBean.DataBean> apiResult);
 }

@@ -18,7 +18,7 @@ import butterknife.Unbinder;
  */
 public abstract class BaseActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
     public String TAG = getClass().getSimpleName().toString();
-    protected Context mContext;
+    public Context mContext;
     private Unbinder mUnbinder;
     //表示层的引用
     protected P basePresenter;

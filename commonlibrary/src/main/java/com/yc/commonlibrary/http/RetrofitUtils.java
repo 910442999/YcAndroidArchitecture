@@ -106,7 +106,7 @@ public class RetrofitUtils {
      * @param map                       参数
      * @param onRequestCallBackListener 回调监听
      */
-    public void get(String url, Map map, final OnRequestCallBackListener onRequestCallBackListener) {
+    public <T> void get(String url, Map map, final OnRequestCallBackListener<T> onRequestCallBackListener) {
         get(url, map, onRequestCallBackListener, "");
     }
 
@@ -118,7 +118,7 @@ public class RetrofitUtils {
      * @param onRequestCallBackListener 回调监听
      * @param type                      调用的方法类型(区分调用的方法的回调参数)
      */
-    public void get(String url, Map map, final OnRequestCallBackListener onRequestCallBackListener, String type) {
+    public <T> void get(String url, Map map, final OnRequestCallBackListener<T> onRequestCallBackListener, String type) {
         Flowable flowable = mBaseApiService.get(url, map);
         requestCallBack(flowable, onRequestCallBackListener, type);
     }
@@ -130,7 +130,7 @@ public class RetrofitUtils {
      * @param map
      * @param onRequestCallBackListener
      */
-    public void post(String url, Map map, final OnRequestCallBackListener onRequestCallBackListener) {
+    public <T> void post(String url, Map map, final OnRequestCallBackListener<T> onRequestCallBackListener) {
         post(url, map, onRequestCallBackListener, "");
     }
 
@@ -142,7 +142,7 @@ public class RetrofitUtils {
      * @param onRequestCallBackListener 回调监听
      * @param type                      调用的方法类型(区分调用的方法的回调参数)
      */
-    public void post(String url, Map map, final OnRequestCallBackListener onRequestCallBackListener, String type) {
+    public <T> void post(String url, Map map, final OnRequestCallBackListener<T> onRequestCallBackListener, String type) {
         Flowable flowable = mBaseApiService.post(url, map);
         requestCallBack(flowable, onRequestCallBackListener, type);
     }
@@ -161,8 +161,8 @@ public class RetrofitUtils {
                 .subscribeWith(new DisposableSubscriber<T>() {
 
                     @Override
-                    public void onNext(T apiResult) {
-                        onRequestCallBackListener.onSuccess(apiResult, type);
+                    public void onNext(T body) {
+                            onRequestCallBackListener.onSuccess(body, type);
                     }
 
                     @Override

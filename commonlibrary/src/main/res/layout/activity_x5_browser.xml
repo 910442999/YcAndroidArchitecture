@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ECF0F2">
@@ -38,6 +39,7 @@
             android:text="标题"
             />
         <TextView
+            android:visibility="gone"
             android:id="@+id/tv_share"
             android:layout_width="45dp"
             android:layout_height="45dp"

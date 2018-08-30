@@ -1,11 +1,13 @@
 package com.yc.homelibrary.presenter;
 
-import com.yc.commonlibrary.bean.ApiResult;
 import com.yc.commonlibrary.interfaces.onCallBackListener;
 import com.yc.commonlibrary.presenter.BasePresenter;
+import com.yc.homelibrary.bean.NewsBean;
 import com.yc.homelibrary.model.HomeModel;
 import com.yc.homelibrary.model.implement.HomeModelImpl;
 import com.yc.homelibrary.view.IHomeView;
+
+import java.util.List;
 
 /**
  * Created by yc on 2018/7/25.
@@ -25,9 +27,9 @@ public class HomePresenter<T extends IHomeView> extends BasePresenter<T> {
         if (mTWeakReference.get() != null) {
             mTWeakReference.get().showLoading();
             if (mHomeModel != null) {
-                mHomeModel.loadDate(new onCallBackListener<ApiResult>() {
+                mHomeModel.loadDate(new onCallBackListener<List<NewsBean.ResultBean.DataBean>>() {
                     @Override
-                    public void onSuccess(ApiResult apiResult) {
+                    public void onSuccess(List<NewsBean.ResultBean.DataBean> apiResult) {
                         mTWeakReference.get().showhome(apiResult);
                     }
 

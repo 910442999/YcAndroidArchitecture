@@ -20,40 +20,13 @@ package com.yc.commonlibrary.bean;
 
  */
 public class ApiResult<T> {
-    private int error_code;
-    private String reason;
-    private T result;
+    private T data;
 
-    public int getError_code() {
-        return error_code;
+    public T getData() {
+        return data;
     }
 
-    public void setError_code(int error_code) {
-        this.error_code = error_code;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    @Override
-    public String toString() {
-        return "ApiResult{" +
-                "error_code=" + error_code +
-                ", reason='" + reason + '\'' +
-                ", result=" + result +
-                '}';
+    public void setData(T data) {
+        this.data = data;
     }
 }
